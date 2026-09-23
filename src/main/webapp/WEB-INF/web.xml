@@ -8,9 +8,17 @@
         <servlet-name>TryServlet</servlet-name>
         <servlet-class>myCode.TryServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetFormServlet</servlet-name>
+        <servlet-class>myCode.GetFormServlet</servlet-class>
+    </servlet>
     
     <servlet-mapping>
         <servlet-name>TryServlet</servlet-name>
         <url-pattern>/try</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetFormServlet</servlet-name>
+        <url-pattern>/formHandling</url-pattern>
     </servlet-mapping>
 </web-app>
