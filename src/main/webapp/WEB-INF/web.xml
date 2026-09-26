@@ -12,6 +12,10 @@
         <servlet-name>GetFormServlet</servlet-name>
         <servlet-class>myCode.GetFormServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PostFormServlet</servlet-name>
+        <servlet-class>myCode.PostFormServlet</servlet-class>
+    </servlet>
     
     <servlet-mapping>
         <servlet-name>TryServlet</servlet-name>
@@ -20,5 +24,9 @@
     <servlet-mapping>
         <servlet-name>GetFormServlet</servlet-name>
         <url-pattern>/formHandling</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PostFormServlet</servlet-name>
+        <url-pattern>/postBook</url-pattern>
     </servlet-mapping>
 </web-app>

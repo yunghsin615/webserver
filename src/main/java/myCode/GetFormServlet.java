@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 @WebServlet(name="GetFormServlet", value="/GetFormServlet")
 public class GetFormServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request,  HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
         // GET params form get request

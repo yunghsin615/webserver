@@ -11,7 +11,7 @@
     <title>Title</title>
   </head>
   <body>
-    <form action="http://localhost:8080/formHandling" method="get">
+    <form action="http://localhost:8080/postBook" method="post">
         <label>Book Name: </label>
         <input type="text" name="name">
         <br>
