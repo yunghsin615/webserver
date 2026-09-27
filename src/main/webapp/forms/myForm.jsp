@@ -11,7 +11,7 @@
     <title>Title</title>
   </head>
   <body>
-    <form action="http://localhost:8080/cookieRegister" method="get">
+    <form action="http://localhost:8080/sessionRegister" method="get">
         <label>Book Name: </label>
         <input type="text" name="name">
         <br>

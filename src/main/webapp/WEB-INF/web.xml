@@ -20,6 +20,10 @@
         <servlet-name>CookieServlet</servlet-name>
         <servlet-class>myCode.CookieServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SessionServlet</servlet-name>
+        <servlet-class>myCode.SessionServlet</servlet-class>
+    </servlet>
     
     <servlet-mapping>
         <servlet-name>TryServlet</servlet-name>
@@ -36,5 +40,9 @@
     <servlet-mapping>
         <servlet-name>CookieServlet</servlet-name>
         <url-pattern>/cookieRegister</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SessionServlet</servlet-name>
+        <url-pattern>/sessionRegister</url-pattern>
     </servlet-mapping>
 </web-app>
