@@ -9,12 +9,13 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name="BookServlet", value="/BookServlet")
 public class BookServlet extends HttpServlet {
 
     private Connection conn;
-    private PreparedStatement preparedStatement;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,32 +32,37 @@ public class BookServlet extends HttpServlet {
         String sql = "SELECT * FROM book Where 1=1";
 
         if (name != null && !name.isBlank()) {
-            sql += " AND name = ?";
+            sql += " AND name LIKE ?";
         }
         if (author != null && !author.isBlank()) {
-            sql += " AND author = ?";
+            sql += " AND author LIKE ?";
         }
 
         try {
-            preparedStatement = conn.prepareStatement(sql);
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
 
             int index = 1;
             if (name != null && !name.isBlank()) {
-                preparedStatement.setString(index++, name);
+                preparedStatement.setString(index++,"%" + name + "%");
             }
             if (author != null && !author.isBlank()) {
-                preparedStatement.setString(index, author);
+                preparedStatement.setString(index, "%" + author + "%");
             }
 
             ResultSet rs = preparedStatement.executeQuery();
+            List<Book> books = new ArrayList<>();
 
-            if (rs.next()) {
+            while (rs.next()) {
                 Book book = new Book();
                 book.setName(rs.getString("name"));
                 book.setPrice(rs.getInt("price"));
                 book.setAuthor(rs.getString("author"));
 
-                request.setAttribute("book", book);
+                books.add(book);
+            }
+
+            if (!books.isEmpty()) {
+                request.setAttribute("books", books);
                 request.getRequestDispatcher("/book.jsp").forward(request, response);
             } else {
                 response.sendRedirect("/bookNotFound.jsp");
