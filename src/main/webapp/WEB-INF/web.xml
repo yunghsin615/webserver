@@ -24,6 +24,10 @@
         <servlet-name>SessionServlet</servlet-name>
         <servlet-class>myCode.SessionServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BookServlet</servlet-name>
+        <servlet-class>book.BookServlet</servlet-class>
+    </servlet>
     
     <servlet-mapping>
         <servlet-name>TryServlet</servlet-name>
@@ -44,5 +48,9 @@
     <servlet-mapping>
         <servlet-name>SessionServlet</servlet-name>
         <url-pattern>/sessionRegister</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BookServlet</servlet-name>
+        <url-pattern>/findBook</url-pattern>
     </servlet-mapping>
 </web-app>

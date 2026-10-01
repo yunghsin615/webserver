@@ -58,10 +58,10 @@ public class CookieServlet extends HttpServlet {
         String author = "";
 
         Cookie[] cookies = request.getCookies();
-        for(Cookie cookie : cookies) {
-            if(cookie.getName().equals("name")) {
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("name")) {
                 name = cookie.getValue();
-            }else if (cookie.getName().equals("price")) {
+            } else if (cookie.getName().equals("price")) {
                 price = Integer.parseInt(cookie.getValue());
             } else if (cookie.getName().equals("author")) {
                 author = cookie.getValue();
@@ -86,13 +86,13 @@ public class CookieServlet extends HttpServlet {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/KaydenceDB", "Kaydence", "password");
             System.out.println("DB Connected");
 
-            preparedStatement = conn.prepareStatement("insert into Book" + "(name, price, author) values  (?, ?, ?)" );
+            preparedStatement = conn.prepareStatement("insert into Book" + "(name, price, author) values  (?, ?, ?)");
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private void storeBook(String name, int price, String author){
+    private void storeBook(String name, int price, String author) {
         try {
             preparedStatement.setString(1, name);
             preparedStatement.setInt(2, price);
