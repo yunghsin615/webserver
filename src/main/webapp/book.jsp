@@ -12,7 +12,6 @@
   </head>
   <body>
     <div>The book from servlet: ${book.getName()}</div>
-    <div>Id: ${bookId}<div>
     <div>Price: ${book.getPrice()}<div>
     <div>Author: ${book.getAuthor()}<div>
   </body>
